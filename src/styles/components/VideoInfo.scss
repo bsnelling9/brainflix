@@ -1,0 +1,84 @@
+@use '../partials/constants' as *;
+@use '../partials/mixins' as *;
+
+
+.video-info {
+    @include flex-box(null, center, null, null);
+    margin: 1.5rem 0;
+    @include desktop {
+        margin: 0 0 3rem 0;
+    }
+    &__wrapper { 
+        width: 100%;
+        max-width: 1280px;      
+        margin: 0 1rem;
+        @include tablet {
+            margin: 0 2.25rem;
+        }
+        @include desktop {
+            margin: 0;
+        }
+        &--container {
+            border-bottom: 2px solid $mercury;
+            @include desktop {
+                padding: 0 1rem 0 0; 
+            }
+        }
+    }
+    &__title {
+        @include font(1.5rem, 700, $grey, 2rem);
+        @include tablet {
+            @include font(2.063rem, 700, $grey, 2.75rem);
+        }
+    }
+    &__data {
+        @include flex-box(row, space-between, null, null);
+        padding: 1rem 0;
+        border-top: 2px solid $mercury;
+        @include tablet {
+            @include flex-box(row, space-between, start, null);
+            border-top: none;
+        }
+    }
+    &__column {
+        width: 50%;
+        @include tablet {
+            @include flex-box(row, space-between, start, null);
+            width: 25%;
+        }
+    }
+    &__container {
+        @include flex-box(row, flex-start, center, null); 
+        &:first-child {
+            margin: 0 0 1rem 0;
+        }
+        @include tablet {
+            &:first-child {
+                margin: 0;
+            }
+        }
+    }
+    &__channel {
+        @include font(13px, 700, $grey, null);
+        margin: 0 0 1rem 0;
+        @include tablet {
+            margin: 0;
+        }
+    }
+    &__date {
+        @include font(13px, 400, $silver, null);
+    }
+    &__text {
+        @include font(13px, 400, $silver, null);
+    }
+    &__icon {
+        height: 13px;
+        margin: 0 0.5rem 0 0;
+    }
+    &__description {
+        padding: 1rem 0;
+        @include desktop {
+            padding: 1rem 1rem 0 0;
+        }
+    }
+}

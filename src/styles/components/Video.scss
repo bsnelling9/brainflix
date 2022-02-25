@@ -1,0 +1,21 @@
+@use '../partials/constants' as *;
+@use '../partials/mixins' as *;
+
+.video {
+    background-color: $black;
+    position: relative;
+    @include flex-box(mull, center, null, null);
+    &__wrapper {
+        width: 100%;
+        max-width: 1280px;
+        @include tablet {
+            padding: 0 2.25rem 0 2.25rem;
+        }
+    }
+    &__window {
+        width: 100%;
+        z-index: 1;
+    }
+}
+
+

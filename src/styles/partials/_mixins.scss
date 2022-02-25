@@ -1,0 +1,48 @@
+@use './constants' as *;
+
+@font-face {
+    font-family: 'AvenirNext LT Pro';
+    src: url('../../assets/Font/Alternative files/AvenirNextLTPro.ttf'),
+        url('../../assets/Font/Alternative files/AvenirNextLTPro.ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AvenirNext LT Pro';
+    src: url('../../assets/Font/Alternative files/AvenirNextLTProBold.ttf'),
+        url('../../assets/Font/Alternative files/AvenirNextLTProBold.ttf');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@mixin tablet {
+    @media screen and(min-width: $tablet-break) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and(min-width: $desktop-break){
+        @content;
+    }
+}
+
+
+@mixin flex-box ($flex-dir: row, $just-cont: center, $align-items: center, $flex-wrap: nowrap){
+    display: flex;
+    justify-content: $just-cont;
+    align-items: $align-items;
+    box-sizing: border-box;
+    flex-direction: $flex-dir;
+    flex-wrap: $flex-wrap;
+}
+
+@mixin font($font-size: 1rem, $font-weight, $color: $grey, $line-height: 1rem) {
+    font-size: $font-size;
+    font-weight: $font-weight;
+    color: $color;
+    line-height: $line-height; 
+}

@@ -1,0 +1,219 @@
+@use '../styles/partials/constants' as *;
+@use '../styles/partials/mixins' as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: "Avenir";
+}
+
+.profile-img {
+    border-radius: 50%;
+    height: 2.25rem;
+    width: 2.25rem;
+    background-color: $mercury;
+    object-fit: cover;
+}
+
+.nav-bar {
+    padding: 1rem 1rem;
+
+    &__container {
+        width: 100%;
+        @include flex-box(column, center, center, null);
+    }
+    &__search {
+        width: 100%;
+        @include flex-box(row, space-between, center, null);
+        margin: 1rem 0;
+        &--container {
+            border-radius: 4px;
+            border: 2px solid $mercury;
+            align-items: center;
+            padding: 0 0.75rem;
+        }
+        &--input {
+            outline: none;
+            border: none;
+            padding: 0.75rem;
+        }
+    }
+}
+
+.btn {
+    background-color: $blue-light;
+    color: $white;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    text-transform: uppercase;
+    @include flex-box(null, flex-start, center, null);
+    height: 40px;
+    padding: 0 1rem;
+}
+
+span {
+    margin: 0 auto;
+    width: 100%;
+    transform: translateX(-12px);
+}
+
+.video {
+    position: relative;
+    &__window {
+        width: 100%;
+        z-index: 1;
+    }
+    &__controls {
+        padding: 0 1rem;
+        @include flex-box(row, space-between, center, null);
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        bottom: 5%;
+    }
+    &__control {
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 0.5rem;
+        border-radius: 4px;
+        @include flex-box(row, null, center, null);
+    }
+}
+
+.video-info {
+    @include flex-box(column, center, center, null);
+    margin: 1.5rem 0;
+    &__wrapper {       
+        margin: 0 1rem;
+    }
+    &__title {
+        @include font(1.5rem, 700, $grey, 2rem);
+    }
+    &__data {
+        @include flex-box(row, space-between, center, null);
+        width: 80%;
+        margin: 1rem 0;
+    }
+    &__container {
+        @include flex-box(row, flex-start, center, null);
+        &:first-child {
+            margin: 0 0 1rem 0;
+        }
+    }
+    &__channel {
+        @include font(13px, 700, $grey, 18px);
+        margin: 0 0 1rem 0;
+    }
+    &__date {
+        @include font(13px, 400, $silver, 1rem)
+    }
+    &__text {
+        @include font(13px, 400, $silver, 1rem);
+    }
+    &__icon {
+        height: 13px;
+    }
+    &__description {
+        @include font(13px, 400, $grey, 18px); 
+    }
+}
+
+.comments {
+    width: 100%;
+    &__wrapper {
+        width: 100%;
+        max-width: 1280px;
+        padding: 0 1rem;
+    }
+    &__container {
+        width: 100%;
+        
+        @include flex-box(row, null, null, null);
+    }
+    &__columnleft {
+        margin: 1rem 1rem 0 0;
+    }
+    &__img {
+        overflow: hidden;
+        border-radius: 50%;
+        height: 2.25rem;
+        width: 2.25rem;
+    }
+
+    &__columnright {
+        width: 100%;
+    }
+    &__list {
+        width: 100%;
+    }
+}
+
+.form {
+    width: 100%;
+    min-height: 2.25rem;
+    @include flex-box(column, null, flex-start);
+    &__label {
+        text-transform: uppercase;
+        @include font(0.625rem, 600, $silver, 18px);
+    }
+    &__comment {
+        outline: 1px solid $mercury;
+        border-radius: 4px;
+        border-style: none;
+        margin-bottom: 1rem;
+        padding: 12px 0 0 12px;
+        width: 100%;
+        resize: none;
+        @include font(0.875rem, normal, $grey, 1.375rem);
+    }
+    &__comment:focus {
+        outline: 1px solid $grey;
+    }
+    &__comment::placeholder {
+        @include font(0.875rem, 300, $grey, 1.375rem);
+        font-family: 'Avenir';
+    }
+    &__img {
+        background-color: $mercury;
+        width: 100%;
+        height: 100%; 
+    }
+}
+
+.card {
+    padding: 1rem 0;
+    border-bottom: 3px solid $mercury;
+    @include flex-box(row, center, null, null);
+    &__img {
+        background-color: $mercury;
+        border-radius: 50%;
+        background-size: cover;
+        overflow: hidden;
+        height: 2.25rem;
+        width: 2.25rem;
+    }
+    &__leftcolumn {
+        @include flex-box(column, flex-start, start, null);
+        height: 100%;
+        margin: 0 1rem 0 0;
+    }
+    &__container {
+        @include flex-box(row, space-between, null, null);
+    }
+    &__text {
+        @include font(0.813rem, normal, $grey, 1rem);
+    }
+    &__author {
+        @include font(0.813rem, 700, $grey, 1.375rem);
+    }
+    &__time {
+        @include font(0.813rem, normal, $silver, 1.375rem);
+    }
+}

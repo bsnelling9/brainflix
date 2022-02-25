@@ -1,0 +1,24 @@
+@use '../partials/constants' as *;
+@use '../partials/mixins' as *;
+
+.video-card {
+    @include flex-box(row, null, null, null);
+    margin: 1rem 0;
+    @include desktop {
+        margin: 1rem 0 0 0;
+    }
+    &__img {
+        height: 4rem;
+        width: 7rem;
+        border-radius: 4px;
+        margin: 0 1rem 0 0;
+        object-fit: cover;
+        overflow: hidden;
+    }
+    &__rightcolumn {
+        @include flex-box(column, space-between, null, null);
+        @include tablet {
+            width: 12rem;
+        }
+    }
+}
