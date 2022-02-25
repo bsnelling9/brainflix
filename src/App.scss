@@ -61,8 +61,11 @@ body {
     &__wrapper {
         width: 100%;
         max-width: 1280px;
-        @include flex-box(row, center, start, null);
+        @include desktop {
+            @include flex-box(row, center, start, null);
         padding: 0 7rem 0 7rem;
+        }
+        
     }
     &__leftcolumn {
         @include desktop {

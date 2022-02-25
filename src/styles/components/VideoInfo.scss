@@ -4,7 +4,7 @@
 
 .video-info {
     @include flex-box(null, center, null, null);
-    margin: 1.5rem 0;
+    margin: 1.5rem 0 0 0;
     @include desktop {
         margin: 0 0 3rem 0;
     }
@@ -44,7 +44,7 @@
         width: 50%;
         @include tablet {
             @include flex-box(row, space-between, start, null);
-            width: 25%;
+            width: 26%;
         }
     }
     &__container {
