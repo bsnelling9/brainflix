@@ -3,10 +3,8 @@ import CommentsCards from './CommentsCards';
 import DisplayPic from '../assets/Images/Mohan-muruge.jpg';
 import '../styles/components/Comments.scss'; 
 
-function Comments(props) {
-       
-    // const getcomments = props.comment;
-    // console.log(getcomments);
+export default function Comments(props) {
+
     const mappedComments = props.comment.length && props.comment.map((item, index) => {
         return( 
             <CommentsCards 
@@ -14,11 +12,11 @@ function Comments(props) {
                 author={item.name}
                 comment={item.comment}
                 likes={item.likes}
-                time={getDate(new Date(item.timestamp *1))}            
+                time= {new Date(item.timestamp).toLocaleDateString("en-US", {year: "numeric", month: "2-digit", day: "2-digit"})}          
             />
         );
     });
-
+    
     return (
         <section className="comments"> 
             <div className="comments__wrapper">
@@ -40,11 +38,3 @@ function Comments(props) {
         </section>
     )
 }
-const getDate = (date) => {
-    let year = date.getFullYear();
-    let month = date.getMonth() + 1;
-    let day = date.getDate();
-    //ternary oporators too add 0 infront of numbers < 10 so i dont have to do iff statements
-    return `${month > 9 ? '': '0'}${month}/${day > 9 ? '': '0'}${day}/${year}`
-}
-export default Comments;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component }  from 'react';
 import './App.scss';
 
 import Navbar from './components/Navbar';
@@ -17,14 +17,15 @@ class App extends Component {
     selectedVideo: DataDetails[0],
     queue: Queue
   }; 
+  
+
+
   updateSelectedVideo = (videoId) => {
-    console.log('click');
     const nextVideo = this.state.videos.find((video) => video.id === videoId);
     this.setState({
         selectedVideo: nextVideo
       });
   };
-  
 
   render() {
     return (

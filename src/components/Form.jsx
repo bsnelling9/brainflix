@@ -1,19 +1,32 @@
+import React, {useState} from 'react';
+import {useForm} from "react-hook-form";
 import DisplayPic from '../assets/Images/Mohan-muruge.jpg';
 import CommentIcon from '../assets/Icons/add_comment.svg';
 import '../styles/components/Form.scss';
 
-const CommentForm = () => {
+
+export default function CommentForm() {
+
+    const {value, handleSubmit, error} = useForm();
+
+    const onSubmit = data => {
+        console.log(data);
+        
+    }
+
     return(
         <>     
             <div className="comments__columnright">
-                <form className="form" /*onSubmit={this.handleSumit}*/>
+                <form className="form" onSubmit={handleSubmit(onSubmit)}>
                     <div className='form__container'>
                         <label className="form__label" htmlFor="form__text">join the conversation</label>
-                        <textarea className="form__comment"
+                        <input className="form__comment"
                             name="text"
+                            type="text"
                             placeholder="Add a new comment"
-                            required
+                            ref={value}
                         />
+                       
                     </div>
                     <button className="btn" type="submit">
                         <img className='btn__ico' src={CommentIcon} alt='upload icon'/>
@@ -25,4 +38,3 @@ const CommentForm = () => {
     )
 }
 
-export default CommentForm;

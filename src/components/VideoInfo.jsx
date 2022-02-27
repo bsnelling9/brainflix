@@ -19,7 +19,7 @@ const VideoInfo = (props) => {
                                 <h3 className='video-info__channel'>By {channel}</h3>
                                 <p className='video-info__date'>{date}</p>
                             </div>
-                            <div className="video-info__column">
+                            <div className="video-info__column video-info__column--data">
                                 <div className='video-info__container'>
                                     <img className='video-info__icon' src={ViewsIcon}/>
                                     <p className='video-info__text'>{views}</p>

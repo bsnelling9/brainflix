@@ -44,7 +44,12 @@
         width: 50%;
         @include tablet {
             @include flex-box(row, space-between, start, null);
-            width: 26%;
+            width: 12rem;
+        }
+        &--data {
+            @include desktop {
+                width: 25%;
+            }
         }
     }
     &__container {
