@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
 import './App.scss';
-
+import  { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Video from './components/Video';
 import VideoInfo from './components/VideoInfo';
@@ -8,6 +8,9 @@ import DataDetails from './assets/Data/video-details.json';
 import Comments from './components/Comments';
 import Queue from './assets/Data/videos.json';
 import VideoQueue from './components/VideoQueue';
+import HomePage from './pages/home-page/HomePage';
+
+
 
 
 class App extends Component {
@@ -18,8 +21,6 @@ class App extends Component {
     queue: Queue
   }; 
   
-
-
   updateSelectedVideo = (videoId) => {
     const nextVideo = this.state.videos.find((video) => video.id === videoId);
     this.setState({
@@ -30,8 +31,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar />
-        <Video video={this.state.selectedVideo}/>
+        <Router>
+          <Navbar />
+          <Switch>
+              <Route path='/videos/:id' component= {HomePage}/>
+              <Route exact path ='/' component= {HomePage}/>
+          </Switch>
+
+
+
+        </Router>
+        
+    
+        {/* <Video video={this.state.selectedVideo}/>
         <main className='content'>
           <div className='content__wrapper'>
             <div className='content__leftcolumn'>
@@ -42,7 +54,7 @@ class App extends Component {
               <VideoQueue queue={this.state.queue} selectedVideo = {this.state.selectedVideo} updateSelectedVideo={this.updateSelectedVideo}/>
             </div>
           </div>
-        </main>
+        </main> */}
       </div>
     )
   }

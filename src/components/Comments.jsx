@@ -1,14 +1,17 @@
+import React, {Component} from "react";
+
 import Form  from './Form';
 import CommentsCards from './CommentsCards';
 import DisplayPic from '../assets/Images/Mohan-muruge.jpg';
 import '../styles/components/Comments.scss'; 
 
+
 export default function Comments(props) {
 
-    const mappedComments = props.comment.length && props.comment.map((item, index) => {
+    const mappedComments = props.comment.length && props.comment.map((item) => {
         return( 
             <CommentsCards 
-                key={index}
+                key={item.id}
                 author={item.name}
                 comment={item.comment}
                 likes={item.likes}
