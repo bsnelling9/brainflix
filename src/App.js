@@ -21,12 +21,12 @@ class App extends Component {
     queue: Queue
   }; 
   
-  updateSelectedVideo = (videoId) => {
-    const nextVideo = this.state.videos.find((video) => video.id === videoId);
-    this.setState({
-        selectedVideo: nextVideo
-      });
-  };
+  // updateSelectedVideo = (videoId) => {
+  //   const nextVideo = this.state.videos.find((video) => video.id === videoId);
+  //   this.setState({
+  //       selectedVideo: nextVideo
+  //     });
+  // };
 
   render() {
     return (
@@ -34,27 +34,12 @@ class App extends Component {
         <Router>
           <Navbar />
           <Switch>
-              <Route path='/videos/:id' component= {HomePage}/>
+              <Route path='/videos' component= {HomePage}/>
               <Route exact path ='/' component= {HomePage}/>
           </Switch>
 
-
-
         </Router>
         
-    
-        {/* <Video video={this.state.selectedVideo}/>
-        <main className='content'>
-          <div className='content__wrapper'>
-            <div className='content__leftcolumn'>
-              <VideoInfo video={this.state.selectedVideo}/>
-              <Comments comment={this.state.selectedVideo.comments}/>
-            </div>
-            <div className='content__rightcolumn'>
-              <VideoQueue queue={this.state.queue} selectedVideo = {this.state.selectedVideo} updateSelectedVideo={this.updateSelectedVideo}/>
-            </div>
-          </div>
-        </main> */}
       </div>
     )
   }

@@ -5,7 +5,7 @@ import axios from "axios";
 import Video from '../../components/Video';
 import VideoInfo from '../../components/VideoInfo';
 import Comments from '../../components/Comments';
-// import VideoQueue from '../components/VideoQueue';
+import VideoQueue from '../../components/VideoQueue';
 
 const Api_key = "b2daf369-a0db-4cbc-a2f0-13c96ed1887f"; 
 const URL = "https://project-2-api.herokuapp.com";
@@ -38,6 +38,12 @@ export default class HomePage extends Component {
         })
     }
 
+    componentDidUpdate(_prevProps, prevState) {
+       if (prevState.selected.id !== this.props.match.params.id) {
+
+       }
+    }
+
     render() {
      
         return (
@@ -50,7 +56,7 @@ export default class HomePage extends Component {
                     <Comments comment={this.state.comment}/>
                     </div>
                     <div className='content__rightcolumn'>
-                    {/* <VideoQueue queue={this.state.queue} selectedVideo = {this.state.selectedVideo} updateSelectedVideo={this.updateSelectedVideo}/> */}
+                    <VideoQueue queue={this.state.videos} select={this.state.selected.id}/>
                     </div>
                 </div>
                 </main>

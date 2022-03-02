@@ -25,8 +25,8 @@ export default function CommentForm() {
                             type="text"
                             placeholder="Add a new comment"
                             ref={value}
-                        />
-                       
+                            required
+                        /> 
                     </div>
                     <button className="btn" type="submit">
                         <img className='btn__ico' src={CommentIcon} alt='upload icon'/>
