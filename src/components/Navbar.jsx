@@ -12,10 +12,12 @@ const navbarComponent = () => {
     return(
         <header className="nav-bar">
             <div className='nav-bar__container'>
-                <img 
-                    className="nav-bar--img"
-                    src={Logo}
-                /> 
+                <a href='/'>
+                    <img 
+                        className="nav-bar--img"
+                        src={Logo}
+                    />
+                </a>
                 <div className='nav-bar__search'>
                     <div className='nav-bar__search--container'>
                         <img className="nav-bar__search--img" src={SearchIcon}/> 
@@ -33,7 +35,7 @@ const navbarComponent = () => {
                     </div>
                     
                 </div>
-                <a className='nav-bar__btn btn__mobile'>
+                <a className='nav-bar__btn btn__mobile' href='/upload'>
                     <img className='btn__ico' src={UploadIcon} alt='upload icon'/>
                     <span className='btn__text'>upload</span>
                 </a>

@@ -64,8 +64,7 @@ body {
         @include desktop {
             @include flex-box(row, center, start, null);
         padding: 0 7rem 0 7rem;
-        }
-        
+        } 
     }
     &__leftcolumn {
         @include desktop {

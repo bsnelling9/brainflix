@@ -1,0 +1,24 @@
+@use '../../styles/partials/constants' as *;
+@use '../../styles/partials/mixins' as *;
+
+
+.upload {
+    width: 100%;
+    @include flex-box(null, center,null, null);
+    &__wrapper {
+        width: 100%;
+        max-width: 1280px;
+        padding: 0 1rem;
+    }
+    &__imgcontainer {
+        width: 100%;
+        height: 10rem;
+        background-color: $mercury;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+}
+.thumbnail {
+    width: 100%;
+    height: 100%;
+}

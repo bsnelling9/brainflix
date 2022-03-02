@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import '../styles/components/VideoQueue.scss';
 
 export default function VideoQueue(props) {
-    console.log(props.queue);
     const mappedVideos = props.queue.filter(queue => queue.id !== props.select).map((item) => {
         return( 
             <VideoCards 
@@ -17,9 +16,7 @@ export default function VideoQueue(props) {
         <section className="queue">
             <h3 className='queue__title'>next video</h3>
             <div className="queue__wrapper">
-
-                    {mappedVideos}
-                
+                {mappedVideos}                
             </div>    
         </section>
     )

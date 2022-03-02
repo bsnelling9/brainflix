@@ -19,7 +19,7 @@ export default function CommentForm() {
             <div className="comments__columnright">
                 <form className="form" onSubmit={handleSubmit(onSubmit)}>
                     <div className='form__container'>
-                        <label className="form__label" htmlFor="form__text">join the conversation</label>
+                        <label className="form__label" htmlFor="text">join the conversation</label>
                         <input className="form__comment"
                             name="text"
                             type="text"
