@@ -9,12 +9,6 @@ import UploadPage from './pages/upload-page/UploadPage';
 
 class App extends Component {
   
-  // state = {
-  //   videos: DataDetails,
-  //   selectedVideo: DataDetails[0],
-  //   queue: Queue
-  // }; 
-  
   render() {
     return (
       <div className="App">

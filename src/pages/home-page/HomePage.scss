@@ -1,0 +1,26 @@
+@use '../../styles/partials/constants' as *;
+@use '../../styles/partials/mixins' as *;
+
+.content {
+    width: 100%;
+    @include flex-box(null, center,null, null);
+    &__wrapper {
+        width: 100%;
+        max-width: 1280px;
+        @include desktop {
+            @include flex-box(row, center, start, null);
+        padding: 0 7rem 0 7rem;
+        } 
+    }
+    &__leftcolumn {
+        @include desktop {
+            padding: 2rem 0 0 0;
+        }
+    }
+    &__rightcolumn {
+        @include desktop {
+            border-left: 2px solid $mercury;
+            padding: 2rem 0 2rem 2rem;
+        }
+    }
+}

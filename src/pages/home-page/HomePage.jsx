@@ -1,12 +1,11 @@
 import React, {Component} from "react";
 import axios from "axios";
-
-
 import Video from '../../components/Video';
 import VideoInfo from '../../components/VideoInfo';
 import Comments from '../../components/Comments';
 import VideoQueue from '../../components/VideoQueue';
 
+import './HomePage.scss';
 const Api_key = "b2daf369-a0db-4cbc-a2f0-13c96ed1887f"; 
 const URL = "https://project-2-api.herokuapp.com";
 
@@ -80,34 +79,3 @@ export default class HomePage extends Component {
     }
 }
 
-// axios.get(`${URL}/videos?api_key=${Api_key}`)
-        // .then(response => {
-        //     const vidId = this.props.match.params.id || response.data[0].id;
-        //     this.setState({videos: response.data})
-        //     return axios.get(`${URL}/videos/${vidId}/?api_key=${Api_key}`)
-        // })
-        // .then(response => {
-        //     this.setState({
-        //         selected: response.data,
-        //         comment: response.data.comments
-        //     })
-        // })
-        // .catch(err => {
-        //     console.log(err);
-        // })
-        // fetchVideo(id) {
-        //     console.log('General Kenobi, youre a bold one');
-        //     axios.get(`${URL}/videos/${id}/?api_key=${Api_key}`)
-        //     .then(response => {
-        //         console.log("updating state");
-        //         this.setState({
-        //             ...this.state,
-        //             selected: response.data,
-        //             comment: response.data.comments
-        //         })
-        //     })
-        //     .catch(err => {
-        //         console.log(err);
-        //     });
-        // }
-    
