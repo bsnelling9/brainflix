@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/components/Video.scss';
 
-
-
 const VideoPlayer = (props) => {
 
     const {

@@ -16,7 +16,9 @@ body {
     font-size: 16px;
     font-family: "AvenirNext LT Pro";
 }
-
+a {
+    text-decoration: none;
+}
 .btn {
     background-color: $blue-light;
     border: none;
@@ -77,4 +79,8 @@ body {
             padding: 2rem 0 2rem 2rem;
         }
     }
+}
+
+.page-title {
+    @include font(1.5rem, 700, $grey, 2rem);
 }

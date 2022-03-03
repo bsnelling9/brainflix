@@ -20,50 +20,47 @@ export default class HomePage extends Component {
         comment: []
     }
 
-    fetchVideo() {
-        console.log('General Kenobi, youre a bold one');
-        const id = this.state.selected.id || this.props.match.params.id;
-        console.log(id);
-        axios.get(`${URL}/videos/${id}/?api_key=${Api_key}`)
-        .then(response => {
+    async fetchAllVideos() {
+        try {
+            const response =  await axios.get(`${URL}/videos?api_key=${Api_key}`)
             this.setState({
-                selected: response.data,
-                coment: response.data.comments
+                videos: response.data, })
+                const vidId = this.props.match.params.id || response.data[0].id;
+            const res = await axios.get(`${URL}/videos/${vidId}/?api_key=${Api_key}`)
+            this.setState({
+                selected: res.data,
+                comment: res.data.comments
             })
-        })
+        } catch(err) {console.log(err)}
+    }
+
+    async fetchVideo(id) {
+        try {
+            console.log('General Kenobi, youre a bold one');
+            const res = await axios.get(`${URL}/videos/${id}/?api_key=${Api_key}`)
+            this.setState({
+                ...this.state,
+                selected: res.data,
+                comment: res.data.comments
+            })
+        } catch(err) {console.log(err)}  
     }
 
     componentDidMount() {
-        axios.get(`${URL}/videos?api_key=${Api_key}`)
-        .then(response => {
-            const vidId = this.props.match.params.id || response.data[0].id;
-            console.log(vidId);
-            axios.get(`${URL}/videos/${vidId}/?api_key=${Api_key}`)
-            .then(response2 => {
-                this.setState({
-                    videos: response.data,
-                    selected: response2.data,
-                    comment: response2.data.comments
-                })
-            })
-        })
-        .catch(err => {
-            console.log(err);
-        })
+        this.fetchAllVideos();
     }
 
     componentDidUpdate(prevProps, prevState) {
-       if (prevState.selected.id !== this.props.match.params.id) {
-            // this.fetchVideo();
-            console.log('props'+ this.props.match.params.id);
-            console.log('state'+ prevState.selected.id);
-            console.log('General Kenobi, youre a bold one');
-       }
+        let videoId = this.props.match.params.id;
+        if (videoId) {
+            if (videoId !== prevProps.match.params.id) {
+                this.fetchVideo(videoId);
+           }
+        } 
     }
 
     render() {
         const {videos, selected, comment} = this.state;
-
         return (
             <>
                 <Video video={selected}/>
@@ -74,7 +71,7 @@ export default class HomePage extends Component {
                         <Comments comment={comment}/>
                     </div>
                     <div className='content__rightcolumn'>
-                        <VideoQueue queue={videos} select={selected.id}/>
+                        <VideoQueue queue={videos} select={selected}/>
                     </div>
                 </div>
                 </main>
@@ -82,3 +79,35 @@ export default class HomePage extends Component {
         );
     }
 }
+
+// axios.get(`${URL}/videos?api_key=${Api_key}`)
+        // .then(response => {
+        //     const vidId = this.props.match.params.id || response.data[0].id;
+        //     this.setState({videos: response.data})
+        //     return axios.get(`${URL}/videos/${vidId}/?api_key=${Api_key}`)
+        // })
+        // .then(response => {
+        //     this.setState({
+        //         selected: response.data,
+        //         comment: response.data.comments
+        //     })
+        // })
+        // .catch(err => {
+        //     console.log(err);
+        // })
+        // fetchVideo(id) {
+        //     console.log('General Kenobi, youre a bold one');
+        //     axios.get(`${URL}/videos/${id}/?api_key=${Api_key}`)
+        //     .then(response => {
+        //         console.log("updating state");
+        //         this.setState({
+        //             ...this.state,
+        //             selected: response.data,
+        //             comment: response.data.comments
+        //         })
+        //     })
+        //     .catch(err => {
+        //         console.log(err);
+        //     });
+        // }
+    

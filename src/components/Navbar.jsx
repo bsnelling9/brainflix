@@ -26,7 +26,7 @@ const navbarComponent = () => {
                             placeholder='Search'
                         />
                     </div>
-                    <a className='nav-bar__btn btn__notmobile'>
+                    <a className='nav-bar__btn btn__notmobile' href='/upload'>
                         <img className='btn__ico' src={UploadIcon} alt='upload icon'/>
                         <span className='btn__text'>upload</span>
                     </a>

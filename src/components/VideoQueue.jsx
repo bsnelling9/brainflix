@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import '../styles/components/VideoQueue.scss';
 
 export default function VideoQueue(props) {
-    const mappedVideos = props.queue.filter(queue => queue.id !== props.select).map((item) => {
+    const mappedVideos = props.queue.filter(queue => queue.id !== props.select.id).map((item) => {
         return( 
             <VideoCards 
                 key={item.id}

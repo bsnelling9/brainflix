@@ -4,6 +4,8 @@
 
 .upload {
     width: 100%;
+    border-top: 2px solid $mercury;
+    padding-top: 1.5rem;
     @include flex-box(null, center,null, null);
     &__wrapper {
         width: 100%;
@@ -12,13 +14,72 @@
     }
     &__imgcontainer {
         width: 100%;
-        height: 10rem;
         background-color: $mercury;
         border-radius: 4px;
         overflow: hidden;
+        @include tablet {
+            width: 50%;
+        }
     }
+    &__container {
+        margin-top: 1.5rem;
+        &--form {
+            width: 100%;
+        }
+        &--thumbnail {
+            margin-bottom: 1rem;
+        }
+    }
+    &__form{
+        @include tablet{
+            @include flex-box(column, null, flex-start, null);
+        }
+        &--text {
+            width: 100%;
+        }
+    } 
 }
+
 .thumbnail {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
+}
+
+.cancel__btn {
+    background-color: $white;
+    border: none;
+    width: 100%;
+    text-transform: uppercase;
+    @include flex-box(null, center, center, null);
+    height: 40px;
+    margin: 1rem 0 0 0;
+    padding: 0 0.5rem;
+    @include font(12px, 700, $blue-light, 20px);
+    @include tablet {
+        min-width: 150px;
+        max-width: 150px;
+    } 
+}
+
+.btn-mobile {
+    @include tablet {
+        display: none;
+    }
+    @include desktop {
+        display: none;
+    }
+}
+
+.btn-not-mobile {
+    display: none;
+    @include tablet {
+        display: inline-block;
+    }
+}
+
+.button__container {
+    width: 100%;
+    @include tablet {
+        @include flex-box(row, flex-end, end, null);
+    }
 }
