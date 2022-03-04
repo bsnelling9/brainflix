@@ -1,9 +1,9 @@
-import React, {Component} from "react";
+import React from "react";
 
-import Form  from './Form';
-import CommentsCards from './CommentsCards';
-import DisplayPic from '../assets/Images/Mohan-muruge.jpg';
-import '../styles/components/Comments.scss'; 
+import Form  from '../Form/Form';
+import CommentsCards from '../CommentCards/CommentsCards';
+import DisplayPic from '../../assets/Images/Mohan-muruge.jpg';
+import './Comments.scss'; 
 
 
 export default function Comments(props) {

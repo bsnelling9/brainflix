@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/components/Video.scss';
+import './VideoPlayer.scss';
 
 const VideoPlayer = (props) => {
 

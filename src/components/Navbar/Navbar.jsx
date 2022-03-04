@@ -1,12 +1,11 @@
 import React from 'react';
 
-import Logo from '../assets/Logo/BrainFlix-logo.svg';
-import SearchIcon from '../assets/Icons/search.svg';
-import ProfilePic from '../assets/Images/Mohan-muruge.jpg';
-import UploadIcon from '../assets/Icons/upload.svg';
+import Logo from '../../assets/Logo/BrainFlix-logo.svg';
+import SearchIcon from '../../assets/Icons/search.svg';
+import ProfilePic from '../../assets/Images/Mohan-muruge.jpg';
+import UploadIcon from '../../assets/Icons/upload.svg';
 
-
-import '../styles/components/Navbar.scss';
+import './Navbar.scss';
 
 const navbarComponent = () => {
     return(

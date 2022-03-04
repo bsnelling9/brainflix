@@ -1,30 +1,20 @@
-import React, {useState} from 'react';
-import {useForm} from "react-hook-form";
-import DisplayPic from '../assets/Images/Mohan-muruge.jpg';
-import CommentIcon from '../assets/Icons/add_comment.svg';
-import '../styles/components/Form.scss';
+import React from 'react';
+import CommentIcon from '../../assets/Icons/add_comment.svg';
+import './Form.scss';
 
 
 export default function CommentForm() {
 
-    const {value, handleSubmit, error} = useForm();
-
-    const onSubmit = data => {
-        console.log(data);
-        
-    }
-
     return(
         <>     
             <div className="comments__columnright">
-                <form className="form" onSubmit={handleSubmit(onSubmit)}>
+                <form className="form">
                     <div className='form__container'>
                         <label className="form__label" htmlFor="text">join the conversation</label>
                         <input className="form__text"
                             name="text"
                             type="text"
                             placeholder="Add a new comment"
-                            ref={value}
                             required
                         /> 
                     </div>

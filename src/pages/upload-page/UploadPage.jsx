@@ -1,44 +1,69 @@
-import React, { Component, createRef } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
 import PublishIcon from '../../assets/Icons/publish.svg';
 import Thumbnail from '../../assets/Images/Upload-video-preview.jpg';
 import './UploadPage.scss';
 
 export default class UploadPage extends Component {
 
-
     state = {
         title: '',
-        text: '',
-        link: "#"
+        text: ''
     }
     
-    isFormValid(){
-        if(!this.state.text) {
-            this.setState({validate: true})
+    isTextValid = () =>{
+        if(!this.state.text){
+            this.setState({validate: true});
+            return false
         }
-        else if (!this.state.title) {
-            this.setState({validateTitle: true})
-        }
-        else {
-            this.setState({validate: false})
+        else{
+            this.setState({validate: false});
             return true
-        } 
+        }  
+    }
+    
+    isTitleValid = () => {
+        if(!this.state.title){
+            this.setState({validateTitle: true});
+            return false;
+        }
+        else{
+            this.setState({validateTitle: false});
+            return true
+        }
     }
 
-    handleChange = event => {
+    isFormValid() {
+        this.isTextValid();
+        this.isTitleValid();
+        if (!this.isTextValid() || !this.isTitleValid()) {
+            return false
+        }
+        return true  
+    }
+
+    handleChangeTitle = event => {
+        event.preventDefault();
         this.setState({
-            [event.target.name]: event.target.value
+            title: event.target.value
         })
+        this.isTitleValid();
+    }
+
+    handleChangeText = event => {
+        event.preventDefault();
+        this.setState({
+            text: event.target.value
+        })
+        this.isTextValid();
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        if(this.isFormValid()) {
-            alert("signed up");
+        if(!this.isFormValid()) {
+            this.isFormValid();
+        }
+        else {
             window.location.href= "/";
-        }else {
-            alert("ouuf");
         }
     };
 
@@ -52,9 +77,9 @@ export default class UploadPage extends Component {
                             <div className='upload__form--container'>
                                 <div className='upload__container--thumbnail'>
                                     <label htmlFor='thumbnail' className='form__label'>video thumbnail</label>
-                                    <div className='upload__imgcontainer'>
+                                    {/* <div className='upload__imgcontainer'> */}
                                         <img className='thumbnail' src={Thumbnail}/>
-                                    </div>
+                                    {/* </div> */}
                                 </div>
                                 <div className='upload__content'>
                                     <label className='form__label' htmlFor='title'>title your video</label>
@@ -62,7 +87,7 @@ export default class UploadPage extends Component {
                                         className={this.state.validateTitle ? 'error form__text upload__form--text' : 'form__text upload__form--text'}
                                         name='title'
                                         placeholder='Add a title to your video'
-                                        onChange={this.handleChange}
+                                        onChange={this.handleChangeTitle}
                                     />
                                     <label className="form__label" htmlFor="text">add a video description</label>
                                     <input className={this.state.validate ? 'error form__text upload__form--text' : 'form__text upload__form--text'} 
@@ -70,7 +95,7 @@ export default class UploadPage extends Component {
                                         type="text"
                                         placeholder="Add a description to your video"
                                         autoComplete='off'
-                                        onChange={this.handleChange}
+                                        onChange={this.handleChangeText}
                                     />
                                 </div> 
                             </div>

@@ -1,9 +1,10 @@
-@use '../partials/constants' as *;
-@use '../partials/mixins' as *;
+@use '../../styles/partials/constants' as *;
+@use '../../styles/partials/mixins' as *;
 
 .card {
     padding: 1rem 0;
     border-bottom: 2px solid $mercury;
+    @include flex-box(row, flex-start, null , null);
     @include desktop {
         border-bottom: none;
         border-top: 2px solid $mercury;

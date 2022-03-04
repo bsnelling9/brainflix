@@ -1,7 +1,7 @@
-import ViewsIcon from '../assets/Icons/views.svg';
-import LikesIcons from '../assets/Icons/likes.svg';
+import ViewsIcon from '../../assets/Icons/views.svg';
+import LikesIcons from '../../assets/Icons/likes.svg';
 
-import '../styles/components/VideoInfo.scss';
+import './VideoInfo.scss';
 
 const VideoInfo = (props) => {
 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-// import '../styles/components/CommentsCards.scss';
 
-import '../styles/components/CommentCards.scss';
+import './CommentCards.scss';
 
 const CommentsCards = (props) =>{
     

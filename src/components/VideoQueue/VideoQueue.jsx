@@ -1,6 +1,5 @@
-import VideoCards from './VideoCards';
-import {Link} from 'react-router-dom';
-import '../styles/components/VideoQueue.scss';
+import VideoCards from '../VideoCards/VideoCards';
+import './VideoQueue.scss';
 
 export default function VideoQueue(props) {
     const mappedVideos = props.queue.filter(queue => queue.id !== props.select.id).map((item) => {

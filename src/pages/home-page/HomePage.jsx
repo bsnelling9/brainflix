@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import axios from "axios";
-import Video from '../../components/Video';
-import VideoInfo from '../../components/VideoInfo';
-import Comments from '../../components/Comments';
-import VideoQueue from '../../components/VideoQueue';
+import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
+import VideoInfo from '../../components/VideoInfo/VideoInfo';
+import Comments from '../../components/Comments/Comments';
+import VideoQueue from '../../components/VideoQueue/VideoQueue';
 
 import './HomePage.scss';
 const Api_key = "b2daf369-a0db-4cbc-a2f0-13c96ed1887f"; 
@@ -35,7 +35,6 @@ export default class HomePage extends Component {
 
     async fetchVideo(id) {
         try {
-            console.log('General Kenobi, youre a bold one');
             const res = await axios.get(`${URL}/videos/${id}/?api_key=${Api_key}`)
             this.setState({
                 ...this.state,
@@ -54,6 +53,7 @@ export default class HomePage extends Component {
         if (videoId) {
             if (videoId !== prevProps.match.params.id) {
                 this.fetchVideo(videoId);
+                window.scrollTo(0,0);
            }
         } 
     }
@@ -62,7 +62,7 @@ export default class HomePage extends Component {
         const {videos, selected, comment} = this.state;
         return (
             <>
-                <Video video={selected}/>
+                <VideoPlayer video={selected}/>
                 <main className="content">
                 <div className='content__wrapper'>
                     <div className='content__leftcolumn'>

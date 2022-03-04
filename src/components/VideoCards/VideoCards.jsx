@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import '../styles/components/VideoCards.scss';
+import './VideoCards.scss';
 
 
 export default class VideoCards extends Component {

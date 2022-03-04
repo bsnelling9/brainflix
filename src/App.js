@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 import './App.scss';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import HomePage from './pages/home-page/HomePage';
 import UploadPage from './pages/upload-page/UploadPage';
 
@@ -10,6 +10,7 @@ import UploadPage from './pages/upload-page/UploadPage';
 class App extends Component {
   
   render() {
+    
     return (
       <div className="App">
         <Router>
@@ -21,7 +22,6 @@ class App extends Component {
               <Route path='/upload' component={UploadPage}/>
           </Switch>
         </Router>
-        
       </div>
     )
   }
