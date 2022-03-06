@@ -9,13 +9,12 @@
         max-height: 680px;
         background-color: black;
         max-width: 1280px;
-        // padding-bottom: 52.25%;
         @include tablet {
             padding: 0 2.25rem 0 2.25rem;
-            // padding-bottom: 52.25%;
+            
         }
-        position: relative;
     }
+
     &__window {
         width: 100%;
         height: 100%;

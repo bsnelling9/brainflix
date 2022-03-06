@@ -9,7 +9,10 @@ export default class UploadPage extends Component {
         title: '',
         text: ''
     }
-    
+    /*
+    checks to see if the text field is valid, if not validatetext is set to true
+    which sets a red error border around the form field. Else return true to isFormValid and no error border
+    */
     isTextValid = () =>{
         if(!this.state.text){
             this.setState({validate: true});
@@ -20,7 +23,10 @@ export default class UploadPage extends Component {
             return true
         }  
     }
-    
+    /*
+    checks to see if the title field is valid, if not validateTitle is set to true
+    which sets a red error border around the form field.  Else return true to isFormValid and no error border
+    */
     isTitleValid = () => {
         if(!this.state.title){
             this.setState({validateTitle: true});
@@ -31,7 +37,10 @@ export default class UploadPage extends Component {
             return true
         }
     }
-
+    /*
+    checks to see if all form fields are filled out
+    returns true or false to handle submit
+    */
     isFormValid() {
         this.isTextValid();
         this.isTitleValid();
@@ -41,6 +50,10 @@ export default class UploadPage extends Component {
         return true  
     }
 
+    /*
+    handles the change of title field and class title validation, so if the error is fixed 
+    it will remove red border
+    */
     handleChangeTitle = event => {
         event.preventDefault();
         this.setState({
@@ -48,7 +61,9 @@ export default class UploadPage extends Component {
         })
         this.isTitleValid();
     }
-
+    /*
+    same as above but for text field
+    */
     handleChangeText = event => {
         event.preventDefault();
         this.setState({
@@ -57,6 +72,10 @@ export default class UploadPage extends Component {
         this.isTextValid();
     }
 
+    /*
+    handles submit calls form validate function
+    if form validate function returns true. redirects user to home page
+    */
     handleSubmit = (event) => {
         event.preventDefault();
         if(!this.isFormValid()) {
@@ -77,26 +96,28 @@ export default class UploadPage extends Component {
                             <div className='upload__form--container'>
                                 <div className='upload__container--thumbnail'>
                                     <label htmlFor='thumbnail' className='form__label'>video thumbnail</label>
-                                    {/* <div className='upload__imgcontainer'> */}
-                                        <img className='thumbnail' src={Thumbnail}/>
-                                    {/* </div> */}
+                                    <img className='thumbnail' src={Thumbnail}/>
                                 </div>
                                 <div className='upload__content'>
-                                    <label className='form__label' htmlFor='title'>title your video</label>
-                                    <input
-                                        className={this.state.validateTitle ? 'error form__text upload__form--text' : 'form__text upload__form--text'}
-                                        name='title'
-                                        placeholder='Add a title to your video'
-                                        onChange={this.handleChangeTitle}
-                                    />
-                                    <label className="form__label" htmlFor="text">add a video description</label>
-                                    <input className={this.state.validate ? 'error form__text upload__form--text' : 'form__text upload__form--text'} 
-                                        name="text"
-                                        type="text"
-                                        placeholder="Add a description to your video"
-                                        autoComplete='off'
-                                        onChange={this.handleChangeText}
-                                    />
+                                    <div className='upload__input'>
+                                        <label className='form__label' htmlFor='title'>title your video</label>
+                                        <input
+                                            className={this.state.validateTitle ? 'error form__text upload__form--text' : 'form__text upload__form--text'}
+                                            name='title'
+                                            placeholder='Add a title to your video'
+                                            onChange={this.handleChangeTitle}
+                                        />
+                                    </div>
+                                    <div className='upload__description'>
+                                        <label className="form__label" htmlFor="text">add a video description</label>
+                                        <textarea className={this.state.validate ? 'error upload__textarea upload__form--text' : 'upload__textarea upload__form--text'} 
+                                            name="text"
+                                            type="text"
+                                            placeholder="Add a description to your video"
+                                            autoComplete='off'
+                                            onChange={this.handleChangeText}
+                                        />
+                                    </div>
                                 </div> 
                             </div>
                             <div className='button__container'>

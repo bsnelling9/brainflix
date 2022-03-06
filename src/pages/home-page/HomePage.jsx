@@ -18,7 +18,10 @@ export default class HomePage extends Component {
         selected: {},
         comment: []
     }
-
+    /* 
+    fetches all videos from api and updates the state
+    makes sure that the video playing isnt in the queue
+    */
     async fetchAllVideos() {
         try {
             const response =  await axios.get(`${URL}/videos?api_key=${Api_key}`)
@@ -43,18 +46,27 @@ export default class HomePage extends Component {
             })
         } catch(err) {console.log(err)}  
     }
-
+    /*
+    calls fetch video to get the data
+    */
     componentDidMount() {
         this.fetchAllVideos();
     }
-
+    /*
+    fetchs new video and scrolls to top of page
+    */
     componentDidUpdate(prevProps, prevState) {
         let videoId = this.props.match.params.id;
         if (videoId) {
             if (videoId !== prevProps.match.params.id) {
                 this.fetchVideo(videoId);
                 window.scrollTo(0,0);
-           }
+            }
+        }
+        else {
+            if(this.state.videos[0].id !== prevState.selected.id){
+                this.fetchVideo(this.state.videos[0].id);
+            }
         } 
     }
 

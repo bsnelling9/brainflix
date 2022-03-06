@@ -2,6 +2,11 @@ import VideoCards from '../VideoCards/VideoCards';
 import './VideoQueue.scss';
 
 export default function VideoQueue(props) {
+
+    /*
+    maps the videos passed down from homepage, and filters so the video playing isnt in the list
+    returns a card of each mapped item
+    */
     const mappedVideos = props.queue.filter(queue => queue.id !== props.select.id).map((item) => {
         return( 
             <VideoCards 

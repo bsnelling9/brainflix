@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './VideoPlayer.scss';
 
 const VideoPlayer = (props) => {
@@ -8,7 +8,7 @@ const VideoPlayer = (props) => {
         image
     } = props.video;
  
-    
+    //takes the image thats passed down from home page and uses it as a video poster, duration is to keep track of video length
     return (
         <section className="video">
             <div className='video__wrapper'>
