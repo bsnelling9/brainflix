@@ -107,6 +107,10 @@
             padding: 0.25rem 0.75rem;
             margin-bottom: 0;
         }
+        &:focus {
+            outline: none;
+            border: 2px solid $blue-light;
+        }
         &::placeholder {
             @include font(0.875rem, 300, $grey, 1.375rem);
         }
@@ -170,4 +174,8 @@
     @include desktop {
         margin-top: 1rem;
     }
+}
+
+.error {
+    border: 2px solid $red;
 }
