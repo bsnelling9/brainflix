@@ -17,9 +17,9 @@ class App extends Component {
           <Navbar />
           <Switch>
               <Route path='/videos/:id' component= {HomePage}/>
-              <Route path='/videos' component= {HomePage}/>
               <Route exact path ='/' component= {HomePage}/>
               <Route path='/upload' component={UploadPage}/>
+              {/* <Route path='/videos' component= {HomePage} this should be 404 error/> */}
           </Switch>
         </Router>
       </div>
