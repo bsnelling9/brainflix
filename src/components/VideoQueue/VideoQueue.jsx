@@ -8,7 +8,6 @@ export default function VideoQueue(props) {
     returns a card of each mapped item
     */
     const mappedVideos = props.queue.filter(queue => queue.id !== props.select.id).map((item) => {
-        console.log(item);
         return( 
             <VideoCards 
                 key={item.id}

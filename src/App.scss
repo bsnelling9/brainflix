@@ -23,6 +23,7 @@ a {
     border: none;
     border-radius: 4px;
     width: 100%;
+    cursor: pointer;
     text-transform: uppercase;
     @include flex-box(null, flex-start, center, null);
     height: 40px;

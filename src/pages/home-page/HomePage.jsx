@@ -28,13 +28,11 @@ export default class HomePage extends Component {
             this.setState({
                 videos: response.data, })
             const vidId = this.props.match.params.id || response.data[0].id;
-            console.log(vidId);
             const res = await axios.get(`${process.env.REACT_APP_API_URL}/videos/${vidId}`)
             this.setState({
                 selected: res.data,
                 comment: res.data.comments
             })
-            console.log(res.data);
         } catch(err) {console.log(err)}
     }
 
@@ -81,7 +79,7 @@ export default class HomePage extends Component {
                 <div className='content__wrapper'>
                     <div className='content__leftcolumn'>
                         <VideoInfo video={selected}/>
-                        {/* <Comments comment={comment}/> */}
+                        <Comments comment={comment}/>
                     </div>
                     <div className='content__rightcolumn'>
                         <VideoQueue queue={videos} select={selected}/>

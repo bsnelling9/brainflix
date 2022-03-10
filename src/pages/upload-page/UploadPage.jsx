@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from "axios";
 import PublishIcon from '../../assets/Icons/publish.svg';
 import Thumbnail from '../../assets/Images/Upload-video-preview.jpg';
 import './UploadPage.scss';
@@ -82,9 +83,21 @@ export default class UploadPage extends Component {
             this.isFormValid();
         }
         else {
-            window.location.href= "/";
+            this.uploadVideo(event);
         }
     };
+
+    async uploadVideo(video) {
+        console.log('Upload Page');
+        console.log(video.target.title.value);
+        const upload = await axios.post(`${process.env.REACT_APP_API_URL}/videos`, {
+            title: video.target.title.value,
+            channel: "Brodie Snelling",
+            description: video.target.text.value,
+            image: 'http://localhost:3000/../../assets/Images/Upload-video-preview.jpg' 
+        })
+        this.props.history.push('/');
+    }
 
     render() {
         return (
