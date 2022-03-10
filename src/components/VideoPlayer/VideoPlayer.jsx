@@ -6,7 +6,7 @@ const VideoPlayer = (props) => {
     const {
         image
     } = props.video;
-   
+    console.log(image);
     //takes the image thats passed down from home page and uses it as a video poster, duration is to keep track of video length
     return (
         <section className="video">

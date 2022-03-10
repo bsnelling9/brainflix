@@ -94,7 +94,7 @@ export default class UploadPage extends Component {
             title: video.target.title.value,
             channel: "Brodie Snelling",
             description: video.target.text.value,
-            image: 'http://localhost:3000/../../assets/Images/Upload-video-preview.jpg' 
+            image: '/images/Upload-video-preview.jpg' 
         })
         this.props.history.push('/');
     }
