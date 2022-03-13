@@ -5,7 +5,7 @@ import './VideoInfo.scss';
 
 const VideoInfo = (props) => {
 
-    const {title, channel, views, likes, duration, description, timestamp} = props.video;
+    const {title, channel, views, likes, description, timestamp} = props.video;
     const date = getDate(new Date(timestamp *1));
     return (
         <>
@@ -20,11 +20,11 @@ const VideoInfo = (props) => {
                             </div>
                             <div className="video-info__column video-info__column--data">
                                 <div className='video-info__container'>
-                                    <img className='video-info__icon' src={ViewsIcon}/>
+                                    <img className='video-info__icon' src={ViewsIcon} alt='views icon'/>
                                     <p className='video-info__text'>{views}</p>
                                 </div>
                                 <div className='video-info__container'>
-                                    <img className='video-info__icon' src={LikesIcons} alt='video views icon'/>
+                                    <img className='video-info__icon' src={LikesIcons} alt='likes icon'/>
                                     <p className='video-info__text'>{likes}</p>
                                 </div>
                             </div>

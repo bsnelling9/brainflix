@@ -2,8 +2,8 @@ import React, { Component }  from 'react';
 import './App.scss';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
-import HomePage from './pages/home-page/HomePage';
-import UploadPage from './pages/upload-page/UploadPage';
+import HomePage from './pages/HomePage/HomePage';
+import UploadPage from './pages/UploadPage/UploadPage';
 
 
 

@@ -6,8 +6,7 @@ import Comments from '../../components/Comments/Comments';
 import VideoQueue from '../../components/VideoQueue/VideoQueue';
 
 import './HomePage.scss';
-const Api_key = "b2daf369-a0db-4cbc-a2f0-13c96ed1887f"; 
-const URL = "https://project-2-api.herokuapp.com";
+
 
 
 
