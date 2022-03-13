@@ -103,6 +103,7 @@
         resize: none;
         height: 80px;
         @include font(0.875rem, 700, $grey, 1.375rem);
+        font-family: "AvenirNext LT Pro";
         @include tablet {
             padding: 0.25rem 0.75rem;
             margin-bottom: 0;
@@ -112,7 +113,8 @@
             border: 2px solid $blue-light;
         }
         &::placeholder {
-            @include font(0.875rem, 300, $grey, 1.375rem);
+            @include font(0.875rem, 500, $grey, 1.375rem);
+            font-family: "AvenirNext LT Pro";
         }
     } 
 }

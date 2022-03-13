@@ -7,7 +7,6 @@ const VideoInfo = (props) => {
 
     const {title, channel, views, likes, duration, description, timestamp} = props.video;
     const date = getDate(new Date(timestamp *1));
-
     return (
         <>
             <section className="video-info">

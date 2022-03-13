@@ -24,11 +24,11 @@ export default class HomePage extends Component {
     */
     async fetchAllVideos() {
         try {
-            const response =  await axios.get(`${URL}/videos?api_key=${Api_key}`)
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/videos`)
             this.setState({
                 videos: response.data, })
-                const vidId = this.props.match.params.id || response.data[0].id;
-            const res = await axios.get(`${URL}/videos/${vidId}/?api_key=${Api_key}`)
+            const vidId = this.props.match.params.id || response.data[0].id;
+            const res = await axios.get(`${process.env.REACT_APP_API_URL}/videos/${vidId}`)
             this.setState({
                 selected: res.data,
                 comment: res.data.comments
@@ -38,7 +38,7 @@ export default class HomePage extends Component {
 
     async fetchVideo(id) {
         try {
-            const res = await axios.get(`${URL}/videos/${id}/?api_key=${Api_key}`)
+            const res = await axios.get(`${process.env.REACT_APP_API_URL}/videos/${id}`)
             this.setState({
                 ...this.state,
                 selected: res.data,

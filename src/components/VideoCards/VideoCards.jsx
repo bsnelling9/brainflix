@@ -6,7 +6,6 @@ import './VideoCards.scss';
 export default class VideoCards extends Component {
 
     render() {
-        
         return (
             <Link to={`/videos/${this.props.id}`} className='video-link'>
                 <div className='video-card'>
